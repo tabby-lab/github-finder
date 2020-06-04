@@ -36,7 +36,10 @@ clearUsers= () => this.setState({ users:[], loading:false});
       <div className='App'>
    <Navbar />
    <div className='container'>
-     <Search searchUsers={ this.searchUsers } clearUsers={this.clearUsers}/>
+     <Search 
+     searchUsers={ this.searchUsers } 
+     clearUsers={this.clearUsers} 
+     showClear={this.state.users.length > 0 ? true : false}/>
    <Users loading={this.state.loading} users={this.state.users} />
       </div>
       </div>
@@ -47,3 +50,5 @@ clearUsers= () => this.setState({ users:[], loading:false});
  
 
 export default App;
+
+//showclear is an if else statement

@@ -32,6 +32,8 @@ clearUsers= () => this.setState({ users:[], loading:false});
 
 
   render() {
+const { users, loading } = this.state;
+
     return (
       <div className='App'>
    <Navbar />
@@ -39,8 +41,8 @@ clearUsers= () => this.setState({ users:[], loading:false});
      <Search 
      searchUsers={ this.searchUsers } 
      clearUsers={this.clearUsers} 
-     showClear={this.state.users.length > 0 ? true : false}/>
-   <Users loading={this.state.loading} users={this.state.users} />
+     showClear={users.length > 0 ? true : false}/>
+   <Users loading={loading} users={users} />
       </div>
       </div>
       
@@ -52,3 +54,4 @@ clearUsers= () => this.setState({ users:[], loading:false});
 export default App;
 
 //showclear is an if else statement
+//destructoring bc we call this.state a few times/want to male clean

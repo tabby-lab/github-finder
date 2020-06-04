@@ -23,6 +23,7 @@ this.setState({ [e.target.name]: e.target.value });
 
 
     render(){
+        const { showClear, clearUsers } = this.props;
 
         return (
             <div>
@@ -37,7 +38,7 @@ this.setState({ [e.target.name]: e.target.value });
                     <input type="submit" value="Search" className="btn btn-dark btn-block"/>
                 
                 </form>
-                {this.props.showClear && <button className="btn btn-light btn-block" onClick={this.props.clearUsers}>Clear</button>}
+                {showClear && <button className="btn btn-light btn-block" onClick={clearUsers}>Clear</button>}
                 
 
              
@@ -49,3 +50,4 @@ this.setState({ [e.target.name]: e.target.value });
 export default Search
 
 //when there is a form in react usually you need to attach state to the input
+//destructoring showuser and clearuser

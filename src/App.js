@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Users from './components/users/Users';
 import axios from 'axios';
 import Search from './components/users/Search';
 import Alert from './components/layouts/Alert';
+import { BrowserRouter as Router, Switch,Route } from 'react-router-dom'
+
 
 class App extends Component {
 state= {
@@ -46,19 +48,28 @@ setAlert = (msg, type) => {
 const { users, loading } = this.state;
 
     return (
+      <Router>
       <div className='App'>
    <Navbar />
    <div className='container'>
      <Alert alert={this.state.alert}/>
-     <Search 
+     <Switch>
+       <Route exact path= '/' render={props=>(
+         <Fragment>
+<Search
      searchUsers={ this.searchUsers } 
      clearUsers={this.clearUsers} 
      showClear={users.length > 0 ? true : false}
      setAlert={this.setAlert}
      />
    <Users loading={loading} users={users} />
+         </Fragment>
+       )} />
+       </Switch>
+     
       </div>
       </div>
+      </Router>
       
     );
   }

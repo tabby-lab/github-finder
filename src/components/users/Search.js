@@ -10,16 +10,23 @@ import PropTypes from 'prop-types';
          searchUsers: PropTypes.func.isRequired,
          clearUsers:PropTypes.func.isRequired,
          showClear:PropTypes.bool.isRequired,
+         setAlert:PropTypes.func.isRequired,
      };
+
 
      onChange = (e) => 
 this.setState({ [e.target.name]: e.target.value });
      
      onSubmit = (e) => {
         e.preventDefault();
-        this.props.searchUsers(this.state.text);
-        this.setState({ text: '' })
-     }
+        if (this.state.text === '') {
+            this.props.setAlert('please enter something','light');
+        } else {
+            this.props.searchUsers(this.state.text);
+            this.setState({ text: '' });
+        }
+       
+     };
 
 
     render(){
@@ -51,3 +58,4 @@ export default Search
 
 //when there is a form in react usually you need to attach state to the input
 //destructoring showuser and clearuser
+//add method set alert

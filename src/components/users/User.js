@@ -30,7 +30,7 @@ static propTypes= {
 
     const { loading } = this.props;
 
-    if (loading) return <Spinner />;
+    if (loading) return <Spinner />
 
     return <div>{name}</div>;
   }

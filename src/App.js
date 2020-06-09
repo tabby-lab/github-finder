@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from './components/pages/About';
 import User from './components/users/User';
 
-class App extends Component {
+class App extends Component { 
   state = {
     users: [],
     user: {},
@@ -40,9 +40,10 @@ class App extends Component {
     this.setState({ loading:true });
 
     const res = await axios.get(
-      `https://api.github.com/users?q=${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      `https://api.github.com/user?q=${username}?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
     this.setState({ user: res.data, loading: false });
+    console.log(res.data)
   }
 
   //clear users from state
@@ -81,7 +82,7 @@ class App extends Component {
                 )}
               />
               <Route exact path='/about' component={About} />
-              <Route exact path='/user:login' render= {props=>(
+              <Route exact path='/user/:login' render= {props=>(
                 <User { ...props } getUser={this.getUser} user= {user} loading={loading}/>
               )}/>
             </Switch>

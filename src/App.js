@@ -61,7 +61,7 @@ class App extends Component {
                     <Search
                       searchUsers={this.searchUsers}
                       clearUsers={this.clearUsers}
-                      showClear={users.length > 0 ? true : false}
+                      showClear={users.length > 0 ? true : false} 
                       setAlert={this.setAlert}
                     />
                     <Users loading={loading} users={users} />

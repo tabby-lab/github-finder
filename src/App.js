@@ -97,3 +97,4 @@ export default App;
 //showclear is an if else statement
 //destructoring bc we call this.state a few times/want to male clean
 //wrap all routes in a switch bc so that it shows one at a time
+//... spread operator

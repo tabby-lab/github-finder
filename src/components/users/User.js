@@ -1,13 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Spinner from '../layouts/Spinner';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 export class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
   }
 static propTypes= {
-    loading:PropTypes.bool,
+    loading:PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
     getUser:PropTypes.func.isRequired,
 }
@@ -26,13 +27,19 @@ static propTypes= {
       public_repos,
       public_gists,
       hireable
-    } = this.props.user;
+    } = this.props.user
 
-    const { loading } = this.props;
+  
 
-    if (loading) return <Spinner />
+    
 
-    return <div>{name}</div>;
+    return ( 
+    <Fragment>
+      <Link to='/' className='btn btn-light'>
+        Back to search
+      </Link>
+
+    </Fragment>);
   }
 }
 

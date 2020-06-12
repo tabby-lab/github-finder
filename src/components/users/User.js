@@ -38,7 +38,8 @@ static propTypes= {
       <Link to='/' className='btn btn-light'>
         Back to search
       </Link>
-
+      Hireable: {' '}
+{hireable ? <div className="badge badge-success">Hireable</div> : <div className="badge badge-danger">Not hireable</div>}
     </Fragment>);
   }
 }
@@ -46,3 +47,9 @@ static propTypes= {
 export default User;
 
 //rce
+//Hireable: {' '}
+//{hireable ? (
+  //<i className="fas fa-check success" /> 
+//) : (
+//<i className="fas fa-times-circle text-danger" />
+//)}

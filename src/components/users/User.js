@@ -22,6 +22,7 @@ static propTypes= {
       blog,
       login,
       html_url,
+      company,
       followers,
       following,
       public_repos,
@@ -67,22 +68,32 @@ static propTypes= {
     </a>
     <ul>
       <li>
-        {login && ( <Fragment>
+        {login && (
+           <Fragment>
           <strong>Username: </strong> {login}
         </Fragment>)}
       </li>
       <li>
-        {company && (<Fragment>
+        {company && (
+        <Fragment>
           <strong>Company: </strong> {company}
         </Fragment>)}
       </li>
       <li>
-        {blog && (<Fragment>
+        {blog && (
+        <Fragment>
           <strong>Website: </strong> {blog}
         </Fragment>)}
       </li>
     </ul>
   </div>
+</div>
+
+<div className="card text-center">
+  <div className="badge badge-primary">Followers:{followers} </div>
+  <div className="badge badge-success">Following:{following} </div>
+  <div className="badge badge-danger">Public Repos:{public_repos} </div>
+  <div className="badge badge-dark">Public Gists:{public_gists} </div>
 </div>
     </Fragment>);
   }

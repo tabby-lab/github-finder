@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 //Bring in useState hook and define it using const and destructor
 //[create state, method of the state(usually "set" rhen name of state)]
 const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
-   const [text,setText] = useState('');
+    const [text, setText] = useState('');
 
 
 
@@ -48,12 +48,12 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
 
 }
 Search.propTypes = {
-  
-        searchUsers: PropTypes.func.isRequired,
-        clearUsers: PropTypes.func.isRequired,
-        showClear: PropTypes.bool.isRequired,
-        setAlert: PropTypes.func.isRequired,
-    
+
+    searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired,
+    showClear: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired,
+
 };
 
 export default Search

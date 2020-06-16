@@ -44,17 +44,21 @@ GET_REPOS
      //Get Repos
 
      //Clear Users
+   
+  const clearUsers = () => dispatch({ type: CLEAR_USERS });
 
      //Set Loading
      const setLoading = () => dispatch({ type:SET_LOADING });
 
+     //anything we want available we need to add here
      return <GithubContext.Provider
          value = {{
              users: state.users,
              user:state.user,
              repos:state.repos,
              loading:state.loading,
-             searchUsers
+             searchUsers,
+             clearUsers
          }}
          > 
          {props.children}

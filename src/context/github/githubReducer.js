@@ -7,6 +7,7 @@ import {
     
      } from '../types';
 
+     //doing things for app level state
      export default (state,action) => {
     switch(action.type){
         case SEARCH_USERS:
@@ -14,7 +15,13 @@ import {
             ...state,
             users:action.payload,
             loading:false
-        }
+        };
+        case CLEAR_USERS:
+            return {
+                ...state,
+                users:[],
+                loading: false
+            }
         case SET_LOADING:
             return {
                 ...state,

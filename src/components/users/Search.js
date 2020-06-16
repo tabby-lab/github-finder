@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import GithubContext from '../../context/github/githubContext'
 
 //Bring in useState hook and define it using const and destructor
 //[create state, method of the state(usually "set" rhen name of state)]
-const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
+const Search = ({ showClear, clearUsers, setAlert }) => {
+    const githubContext = useContext(GithubContext);
+
     const [text, setText] = useState('');
 
 
@@ -16,7 +19,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
         if (text === '') {
             setAlert('please enter something', 'light');
         } else {
-            searchUsers(text);
+            githubContext.searchUsers(text);
             setText('');
         }
 
@@ -49,7 +52,6 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
 }
 Search.propTypes = {
 
-    searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
     showClear: PropTypes.bool.isRequired,
     setAlert: PropTypes.func.isRequired,
